@@ -1,5 +1,5 @@
-from flask import render_template
-from app import app
+from flask import render_template #takes name of the template file index.html as first argument and searchs it in the app/template subdirectory
+from app import app #impot app instance from the app folder
 
 
 #views
