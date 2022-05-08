@@ -2,6 +2,7 @@ class Config:
     ''' 
     general config of parent class
     '''
+    MOVIE_API_BASE_URL = 'https://api.themoviedb.org/3/movie/{}?api_key={}' #{} This are sections which will be replaced with actual values
     pass
 
 class ProdConfig(Config):
