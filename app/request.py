@@ -27,3 +27,28 @@ def get_movies(category):
             movie_results_list = get_movies_response['results']
             movie_results = process_results(movie_results_list) #process results takes in list of dictionary obejects and returns list of movie objects
             #movie results gives list of movie objects
+
+def process_results(movie_list): #pfunction process resutls that takes in list of dictionaries
+    '''
+    proceses the movie result and transform them to a list of objects
+
+    args:
+        movie_list:a list of dictionaties which contain movie details
+
+    Returns:
+        movie_results: a list of movie objects
+    '''
+    movie_results = [] #empty movie results oobject whihc will store newly created movie objects
+    for movie_item in movie_list: #loop through list of dictionaries and use get method to access the values
+        id = movie_item.get('id')
+        title =  movie_item.get('originam_title')
+        overview = movie_item.get('overview')
+        poster=movie_item.get('poster_path')
+        vote_average= movie_item.get('vote_average')
+        vote_count = movie_item.get('vote_count')
+
+        if poster:
+            movie_object = Movie(id,title,overview,poster,vote_average,vote_count) #check if movie item has all the required things in the object
+            movie_results.append(movie_object)
+
+    return movie_results
