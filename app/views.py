@@ -12,3 +12,7 @@ def index():
     message="Hello WAnjiku!!!!!!"
     
     return render_template('index.html', message = message)  #first messgae is the variable in the  template, the second message is variablein the view function
+
+@app.route('/movie/<movie_id')
+def movie(movie_id):
+    return render_template('movie.html', id=movie_id)
