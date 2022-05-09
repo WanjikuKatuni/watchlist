@@ -1,0 +1,19 @@
+<!-- basefile with basic html structure -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        {% if title %}
+        <title>{{title}}</title>
+        {% elseif %}
+        <title>Welcome to the Best Movie Review Site</title>
+        {% endif %}
+    </head>
+    <body>
+        <!-- content blck which defines elements which can be chnaged in the derived template -->
+        {% block content%}
+
+        {% endblock %}
+
+    </body>
+</html>
