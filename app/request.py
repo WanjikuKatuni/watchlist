@@ -6,7 +6,7 @@ from.models import movie
 Movie=movie.Movie
 
 #getting api key
-api_key=app.config['MOVIE_API_KEY'] #get api key from config object
+api_key = app.config['MOVIE_API_KEY'] #get api key from config object
 
 #getting movie base url
 base_url = app.config["MOVIE_API_BASE_URL"] #acces cibfuguartion objects through api.config and access the movie url
@@ -27,6 +27,7 @@ def get_movies(category):
             movie_results_list = get_movies_response['results']
             movie_results = process_results(movie_results_list) #process results takes in list of dictionary obejects and returns list of movie objects
             #movie results gives list of movie objects
+    return movie_results
 
 def process_results(movie_list): #pfunction process resutls that takes in list of dictionaries
     '''
@@ -41,7 +42,7 @@ def process_results(movie_list): #pfunction process resutls that takes in list o
     movie_results = [] #empty movie results oobject whihc will store newly created movie objects
     for movie_item in movie_list: #loop through list of dictionaries and use get method to access the values
         id = movie_item.get('id')
-        title =  movie_item.get('originam_title')
+        title =  movie_item.get('original_title')
         overview = movie_item.get('overview')
         poster=movie_item.get('poster_path')
         vote_average= movie_item.get('vote_average')

@@ -2,7 +2,7 @@ import unittest  #import unittiest module
 from models import movie  #import the movie module
 Movie= movie.Movie #get movie class
 
-class MovieTest (unittest.TestCase): #movie testcalss
+class MovieTest(unittest.TestCase): #movie testcalss
     '''
     test class that tests the movie class
     '''
