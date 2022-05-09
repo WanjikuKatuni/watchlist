@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
 {% import 'macros.html' as macro %}
 <!DOCTYPE html>
 <html>
@@ -10,7 +11,9 @@
         {%endif%}
     </head>
     <body>
-       
+        <!-- content block -->
+        {% block content%}
+
             <!-- popular movies section -->
             <h3>Popular movies</h3>
             <ul>
@@ -34,6 +37,7 @@
                
             </ul>
        
+        {% endblock %}
            
     </body>
 </html>
