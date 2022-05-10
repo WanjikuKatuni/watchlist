@@ -35,6 +35,7 @@ def movie(id):
     view movie page function that returns movie details page and its data
     '''
     movie=get_movie(id)
+    reviews = Review.get_reviews(movie.id)
     title = f'{movie.title}'
     
     return render_template('movie.html', movie=movie, title=title)
