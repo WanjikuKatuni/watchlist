@@ -1,8 +1,8 @@
 from flask import render_template #takes name of the template file index.html as first argument and searchs it in the app/template subdirectory
 from app import app #impot app instance from the app folder
-from .request import get_movies # import getmovies 
+from .request import get_movies, get_movie # import getmovies 
 
-#views
+#index template
 @app.route('/')
 def index():
 
@@ -18,7 +18,13 @@ def index():
     
     return render_template('index.html', title = title, popular = popular_movies, upcoming=upcoming_movies, now_playing=now_showing_movies)  #first messgae is the variable in the  template, the second message is variablein the view function
 
-@app.route('/movie/<int:movie_id>')
-def movie(movie_id):
-    title = 'Movie {{id}}'
-    return render_template('movie.html', id=movie_id)
+#movie temlplate 
+@app.route('/movie/<int:id>')
+def movie(id):
+    '''
+    view movie page function that returns movie details page and its data
+    '''
+    movie=get_movie(id)
+    title = f'{movie.title}'
+    
+    return render_template('movie.html', movie=movie, title=title)
