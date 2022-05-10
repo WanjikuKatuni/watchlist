@@ -11,6 +11,13 @@
         {%endif%}
     </head>
     <body>
+        <!-- styleblock -->
+        {% block styles%}
+            <!-- to make sure jinja does notoveride bootstrap code -->
+            {{super()}}
+            <!-- url_for creates a link to the static file 'static' is the view function -->
+            <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}"
+        {% endblock %}
         <!-- content block -->
         {% block content%}
 
