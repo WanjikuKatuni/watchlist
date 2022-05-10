@@ -1,6 +1,10 @@
 from flask import render_template, request, redirect,url_for #takes name of the template file index.html as first argument and searchs it in the app/template subdirectory
 from app import app #impot app instance from the app folder
 from .request import get_movies, get_movie, search_movie # import getmovies 
+from .models import reviews
+from .forms import ReviewForm
+
+Review= reviews.Review 
 
 #index template
 @app.route('/')
@@ -48,3 +52,19 @@ def search(movie_name):
     title = f'search results for {movie_name}' # fi is used to format the string
 
     return render_template('search.html', title=title, movies=searched_movies)
+
+
+@app.route('/movie/review/new/<int:id>', methods = ['GET', 'POST'])
+def new_review(id):
+    form=ReviewForm()
+    movie=get_movie(id)
+
+    if form.validate_on_submit():
+        title=form.title.data
+        review = form.review.data
+        new_review = Review(movie.id, title, movie.poster, review)
+        new_review.save_review()
+        return redirect(url_for('movie', id=movie.id))
+    title = f'(movie.title) review'
+    return render_template('new_review.html', title=title, review_form=form, movie=movie)
+
