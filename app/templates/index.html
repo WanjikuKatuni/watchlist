@@ -20,6 +20,13 @@
         {% endblock %}
         <!-- content block -->
         {% block content%}
+            <!-- insert search form -->
+            <div class="container">
+                <form>
+                    <input type="text" name="movie_query" placeholder="search for a movie" clas="form-control">
+                    <input type="submit" value="Submit" class="btn btn-default">
+                </form>
+            </div>
 
             <!-- popular movies section -->
             <h3>Popular movies</h3>
@@ -28,6 +35,7 @@
                 <li>{{macro.displayMovieList(popular)}}</li>
                
             </ul>
+            <br>
             <!-- upcoming movies -->
             <h3>Upcoming Movies</h3>
             <ul>
@@ -36,6 +44,7 @@
 
                 
             </ul>
+            <br>
             <!-- now showing -->
             <h3>Now showing</h3>
             <ul>
