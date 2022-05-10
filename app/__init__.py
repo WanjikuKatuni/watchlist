@@ -15,3 +15,4 @@ bootstrap = Bootstrap(app) #pass in the app instance
 
 
 from app import views #this allows us to create views
+from app import error #this allow us to create error
