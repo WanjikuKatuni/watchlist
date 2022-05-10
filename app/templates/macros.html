@@ -3,6 +3,15 @@
 {% macro displayMovieList(movie_list) %} 
  <!-- for loop that will display movie titles -->
     {% for movie in movie_list %}
-        <li> {{movie.title}}</li>
+
+        <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 movie-card">
+            <img src="{{movie.poster}}" alt="{{movie.title}} poster"  class="img-responsive">
+            <li class="text-center">
+                <a href="/movie/{{movie.id}}">
+                    {{movie.title|truncate(10)}} 
+                    <!-- truncate filter modifies the content of the blcok added after the pipe character. shortnes the variable according to the parametes -->
+                </a>
+            </li> 
+        </div>  
     {% endfor %}
 {% endmacro %}
