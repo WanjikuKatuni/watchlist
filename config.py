@@ -25,3 +25,8 @@ class DevConfig(Config):
     pass
 
     DEBUG = True
+#createdictionary to help in configuration of option classes
+config_options = {
+    'development': DevConfig,
+    'production': ProdConfig
+}
