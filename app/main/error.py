@@ -1,7 +1,8 @@
 from flask import render_template
-from app import app
+from . import main
 
-@app.errorhandler(404)
+
+@main.app_errorhandler(404)
 def four_0w_four(error):
     '''
     function to render the 4040 error

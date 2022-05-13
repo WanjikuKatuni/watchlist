@@ -7,7 +7,7 @@ class Config:
     MOVIE_API_BASE_URL = 'https://api.themoviedb.org/3/movie/{}?api_key={}' #{} This are sections which will be replaced with actual values
     pass
     MOVIE_API_KEY = os.environ.get('MOVIE_API_KEY')
-    SECRET_KEY = os.environ.get(SECRET_KEY)
+    SECRET_KEY = os.environ.get('SECRET_KEY')
 
 class ProdConfig(Config):
     '''
@@ -22,9 +22,10 @@ class DevConfig(Config):
     Args:
     config: parent config with generla config settings
     '''
-    pass
+    
 
     DEBUG = True
+    
 #createdictionary to help in configuration of option classes
 config_options = {
     'development': DevConfig,

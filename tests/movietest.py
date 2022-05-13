@@ -1,6 +1,8 @@
 import unittest  #import unittiest module
-from models import movie  #import the movie module
-Movie= movie.Movie #get movie class
+#from models import movie  #import the movie module
+from app.models import Movie #impport movie from the modules.py file
+
+#Movie= movie.Movie #get movie class
 
 class MovieTest(unittest.TestCase): #movie testcalss
     '''
@@ -16,5 +18,5 @@ class MovieTest(unittest.TestCase): #movie testcalss
         self.assertTrue(isinstance(self.new_movie,Movie))
 
 
-if __name__ == '__main__':
-    unittest.main()
+#if __name__ == '__main__':
+ #   unittest.main()

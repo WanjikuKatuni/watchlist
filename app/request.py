@@ -1,15 +1,33 @@
 #folder where requests to API will be made
-from app import app #Import app instance
+##from app import app #Import app instance
 import urllib.request,json # helps create connection to API url and send request to json which formats json response to python dictionary.
-from.models import movie
+from .models import Movie
 
-Movie=movie.Movie
+
+
+
+#Movie=movie.Movie
+
 
 #getting api key
-api_key = app.config['MOVIE_API_KEY'] #get api key from config object
+##api_key = app.config['MOVIE_API_KEY'] #get api key from config object
 
 #getting movie base url
-base_url = app.config["MOVIE_API_BASE_URL"] #acces cibfuguartion objects through api.config and access the movie url
+##base_url = app.config["MOVIE_API_BASE_URL"] #acces cibfuguartion objects through api.config and access the movie url
+
+
+#getting api key
+api_key=None
+
+#gtting movie base url
+base_url=None
+
+def configure_request(app):
+    global api_key,base_url
+    api_key = app.config['MOVIE_API_KEY'] #get api key from config object
+    base_url = app.config['MOVIE_API_BASE_URL'] #acces cibfuguartion objects through api.config and access the movie url
+
+
 
 def get_movies(category):
 
