@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_bootstrap import Bootstrap
 from config import config_options
+from flask_sqlalchemy import SQLAlchemy
 #from .config import DevConfig
 
 #init app
@@ -12,6 +13,7 @@ from config import config_options
 
 #intializing flask extensions
 bootstrap = Bootstrap() #pass in the app instance
+db=SQLAlchemy() #create the db instance
 
 def create_app(config_name):
 
@@ -22,6 +24,7 @@ def create_app(config_name):
 
     #initializing flask extensions
     bootstrap.init_app(app)
+    db.init_app(app)
 
     #registering the blueprint inside the application factory
     from .main import main as main_blueprint
