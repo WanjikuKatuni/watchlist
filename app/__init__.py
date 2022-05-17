@@ -13,7 +13,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 #intializing flask extensions
 bootstrap = Bootstrap() #pass in the app instance
-db=SQLAlchemy() #create the db instance
+db = SQLAlchemy() #create the db instance
 
 def create_app(config_name):
 

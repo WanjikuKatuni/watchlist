@@ -1,6 +1,5 @@
 import os
 
-from flask_sqlalchemy import SQLAlchemy #alllow aplication to interact with the OS
 
 class Config:
     ''' 
@@ -10,7 +9,7 @@ class Config:
     pass
     MOVIE_API_KEY = os.environ.get('MOVIE_API_KEY')
     SECRET_KEY = os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://wanjiku:qwerty@localhost/watchlist'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://wanjiku:wanjiku@localhost/watchlist'
 
 class ProdConfig(Config):
     '''
