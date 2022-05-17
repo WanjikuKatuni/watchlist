@@ -46,8 +46,13 @@ class Review:
 
 class User(db.Model): #create user class which willc reate new users and pass dbmodel argument to connect the class to the database
     __tablename__ = 'users' #give the table in the database proper names otherwise sql alchemy will assume the tablename is the lowecase of the class name
+    
     id = db.Column(db.Integer, primary_key = True) #dbcolumn to represent a single collumn. id column created and holds the primary key
     username = db.Column(db.String(255)) #datatype is a string with a maximum of 255 characters.
+    role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
+  
+    def __repr__(self): #used to debug applications
+        return f'User {self.username}'
 
     
 class Role(db.Model):
@@ -55,6 +60,7 @@ class Role(db.Model):
 
     id =db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(255))
-
-    def __repr__(self): #used to debug applications
-        return f'User {self.username}'
+    users = db.relationship('User', backref ='role', lazy = "dynamic")
+    
+    def __repr__(self):
+        return f'User {self.name}'
